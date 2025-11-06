@@ -47,7 +47,7 @@ Students must demonstrate the following competencies:
   - Variants 1–2 → Internet allowed  
   - Variant 3 → Offline only (no internet, no AI tools)
 - **External Libraries:**  
-  - Allowed: Newtonsoft.Json, System.Data.SQLite, EF6  
+  - Allowed: ANY valid JSON parsing library, System.Data.SQLite, EF6  
   - Not allowed: Cloud APIs, external services, or AI assistance
 
 ---
