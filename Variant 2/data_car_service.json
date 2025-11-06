@@ -1,0 +1,83 @@
+{
+  "garage": {
+    "id": "G-01",
+    "name": "AutoFix Central",
+    "location": { "city": "Târgu Mureș", "address": "Str. Rozelor 9" },
+    "mechanics": [
+      { "id": "M-1", "name": "Kovacs T.", "specialization": ["Engine", "OBD"], "years": 8 },
+      { "id": "M-2", "name": "Pop A.", "specialization": ["Brakes", "Suspension"], "years": 5 },
+      { "id": "M-3", "name": "Invalid Mechanic", "specialization": [], "years": -2 }
+    ]
+  },
+  "clients": [
+    { "id": "CL-993", "name": "Pop Dan", "phone": "0733XXXXXX", "email": "dan.pop@example.com",
+      "cars": [
+        { "vin": "VF1AAAAA123456789", "make": "Dacia", "model": "Duster", "year": 2019, "odometerKm": 76500 }
+      ]
+    },
+    { "id": "CL-994", "name": "Ionescu Ana", "phone": "0745XXXXXX", "email": "ana.ionescu@example.com",
+      "cars": [
+        { "vin": "WVWZZZ00012345678", "make": "Volkswagen", "model": "Golf 7", "year": 2017, "odometerKm": 122300 }
+      ]
+    },
+    { "id": "CL-995", "name": "", "phone": "000000", "email": "not-an-email",
+      "cars": [
+        { "vin": "", "make": "Unknown", "model": "?", "year": 1890, "odometerKm": -50 }
+      ]
+    }
+  ],
+  "workOrders": [
+    {
+      "id": "W1",
+      "carVin": "VF1AAAAA123456789",
+      "receivedAt": "2025-11-02T08:40:00Z",
+      "type": "MECHANICAL",
+      "tasks": [
+        { "id": "T-1", "desc": "Replace oil gasket", "laborH": 1.5, "rate": 45.0, "mechanicId": "M-1" },
+        { "id": "T-2", "desc": "Engine cleaning", "laborH": 0.8, "rate": 45.0, "mechanicId": "M-1" }
+      ],
+      "parts": [
+        { "sku": "GASK-12", "name": "Oil pan gasket", "qty": 1, "unitPrice": 22.5 },
+        { "sku": "OIL-5W40", "name": "Engine oil 5W40", "qty": 5, "unitPrice": 9.9 }
+      ],
+      "invoice": { "currency": "EUR", "paid": false }
+    },
+    {
+      "id": "W2",
+      "carVin": "WVWZZZ00012345678",
+      "receivedAt": "2025-11-02T10:10:00Z",
+      "type": "ELECTRICAL",
+      "tasks": [
+        { "id": "T-3", "desc": "Replace TPS sensor", "laborH": 0.9, "rate": 50.0, "mechanicId": "M-2" }
+      ],
+      "parts": [
+        { "sku": "TPS-VAG", "name": "Throttle Position Sensor", "qty": 1, "unitPrice": 40.0 }
+      ],
+      "invoice": { "currency": "EUR", "paid": true }
+    },
+    {
+      "id": "W3",
+      "carVin": "INVALID-VIN",
+      "receivedAt": "BAD_DATE",
+      "type": "UNKNOWN",
+      "tasks": [
+        { "id": "T-99", "desc": "", "laborH": -1, "rate": -10, "mechanicId": "M-3" }
+      ],
+      "parts": [
+        { "sku": "", "name": "Ghost Part", "qty": -2, "unitPrice": -1 }
+      ],
+      "invoice": { "currency": 123, "paid": "no" }
+    }
+  ],
+  "diagnostics": {
+    "obd": [
+      { "carVin": "VF1AAAAA123456789", "codes": [{ "dtc": "P0420", "status": "PENDING" }, { "dtc": "P0301", "status": "HISTORY" }] },
+      { "carVin": "WVWZZZ00012345678", "codes": [{ "dtc": "P0123", "status": "PENDING" }] }
+    ],
+    "tests": [
+      { "workOrderId": "W1", "name": "Oil pressure", "ok": false },
+      { "workOrderId": "W2", "name": "Electrical test", "ok": true }
+    ]
+  },
+  "meta": { "partners": ["Allianz", "Groupama"], "source": "desktop-app" }
+}

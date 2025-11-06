@@ -1,0 +1,101 @@
+{
+  "store": {
+    "id": "STORE-001",
+    "name": "BookVerse",
+    "currency": "EUR",
+    "address": { "line1": "Bd. Libertății 12", "city": "Cluj", "country": "RO", "zip": "400100" },
+    "employees": [
+      { "id": "E-01", "name": "Ana I.", "role": "Manager", "hiredAt": "2022-03-01" },
+      { "id": "E-02", "name": "Dan P.", "role": "Cashier", "hiredAt": "2024-10-12" }
+    ]
+  },
+  "authors": [
+    { "id": "A1", "name": "Robert C. Martin", "country": "US" },
+    { "id": "A2", "name": "Martin Fowler", "country": "UK" },
+    { "id": "A3", "name": "Erich Gamma", "country": "CH" }
+  ],
+  "books": [
+    {
+      "isbn": "9780132350884",
+      "title": "Clean Code",
+      "authorId": "A1",
+      "price": 42.5,
+      "stock": 12,
+      "categories": ["Programming", "Best Practices"],
+      "dimensions": { "w": 15.2, "h": 3.2, "d": 22.8, "unit": "cm" },
+      "weight": { "value": 0.85, "unit": "kg" }
+    },
+    {
+      "isbn": "9780321127426",
+      "title": "PEAA",
+      "authorId": "A2",
+      "price": 58.0,
+      "stock": 7,
+      "categories": ["Architecture"],
+      "dimensions": { "w": 16.0, "h": 4.0, "d": 24.0, "unit": "cm" },
+      "weight": { "value": 1.02, "unit": "kg" }
+    },
+    {
+      "isbn": "9780201633610",
+      "title": "Design Patterns",
+      "authorId": "A3",
+      "price": 54.9,
+      "stock": 3,
+      "categories": ["Architecture", "Patterns"]
+    },
+    {
+      "isbn": "",
+      "title": "",
+      "authorId": "A99",
+      "price": -15.0,
+      "stock": -3,
+      "categories": [],
+      "dimensions": null
+    }
+  ],
+  "orders": [
+    {
+      "id": "O1",
+      "date": "2025-11-01T10:20:00Z",
+      "customer": { "id": "C-001", "name": "Ionescu Maria", "email": "maria@example.com" },
+      "items": [
+        { "isbn": "9780132350884", "qty": 2, "unitPrice": 42.5, "discount": 5.0 },
+        { "isbn": "9780201633610", "qty": 1, "unitPrice": 54.9 }
+      ],
+      "payment": {
+        "method": "CARD",
+        "transactions": [
+          { "id": "TX-101", "kind": "AUTH", "amount": 134.9, "success": true },
+          { "id": "TX-102", "kind": "CAPTURE", "amount": 134.9, "success": true }
+        ]
+      },
+      "status": "PAID"
+    },
+    {
+      "id": "O2",
+      "date": "2025-11-02T12:05:00Z",
+      "customer": { "id": "C-002", "name": "Pop Dan", "email": "dan@example.com" },
+      "items": [
+        { "isbn": "9780321127426", "qty": 1, "unitPrice": 58.0 }
+      ],
+      "payment": { "method": "CASH", "transactions": [] },
+      "status": "COMPLETED"
+    },
+    {
+      "id": "O3",
+      "date": "BAD_DATE",
+      "customer": { "id": "C-003", "name": "Invalid Entry", "email": "wrongformat" },
+      "items": [
+        { "isbn": "9780132350884", "qty": -2, "unitPrice": 42.5 },
+        { "isbn": "UNKNOWN-ISBN", "qty": 1, "unitPrice": 10 }
+      ],
+      "payment": { "method": "CARD", "transactions": [] },
+      "status": "PENDING"
+    }
+  ],
+  "payments": [
+    { "id": "P-1", "orderId": "O1", "method": "CARD", "amount": 134.9, "captured": true },
+    { "id": "P-2", "orderId": "O2", "method": "CASH", "amount": 58.0, "captured": true }
+  ],
+  "meta": { "source": "desktop-app", "tags": ["november", "sale"] }
+}

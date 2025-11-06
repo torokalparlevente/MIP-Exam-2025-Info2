@@ -1,0 +1,48 @@
+{
+  "warehouse": { "id": "WH-RO-TGM", "name": "Offline Depot", "city": "Târgu Mureș" },
+  "suppliers": [
+    { "id": "SUP-1", "name": "Transilvania Tools SRL", "rating": 4.2 },
+    { "id": "SUP-2", "name": "EuroParts SA", "rating": 3.9 },
+    { "id": "SUP-3", "name": "", "rating": -1 }
+  ],
+  "products": [
+    {
+      "sku": "HAM-100",
+      "name": "Hammer 16oz",
+      "supplierId": "SUP-1",
+      "stock": 65,
+      "reorderPoint": 20,
+      "dimensions": { "w": 12.5, "h": 3.0, "d": 32.0, "unit": "cm" },
+      "weight": { "value": 0.8, "unit": "kg" }
+    },
+    {
+      "sku": "NAI-50",
+      "name": "Nails 50mm",
+      "supplierId": "SUP-2",
+      "stock": 90,
+      "reorderPoint": 100
+    },
+    {
+      "sku": "GLV-M",
+      "name": "Work Gloves M",
+      "supplierId": "SUP-1",
+      "stock": 25,
+      "reorderPoint": 30
+    },
+    {
+      "sku": "",
+      "name": "Broken Item",
+      "supplierId": "SUP-9",
+      "stock": -5,
+      "reorderPoint": 0
+    }
+  ],
+  "stockMovements": [
+    { "id": "M-001", "type": "IN", "sku": "HAM-100", "qty": 10, "at": "2025-11-02T09:00:00Z" },
+    { "id": "M-002", "type": "OUT", "sku": "NAI-50", "qty": 20, "at": "2025-11-02T10:10:00Z" },
+    { "id": "M-003", "type": "OUT", "sku": "GLV-M", "qty": 5, "at": "2025-11-02T10:30:00Z" },
+    { "id": "M-004", "type": "OUT", "sku": "UNKNOWN", "qty": -10, "at": "BAD_DATE" }
+  ],
+  "taxes": [{ "name": "VAT", "rate": 0.21 }],
+  "meta": { "createdBy": "offline-desktop", "sync": false }
+}
